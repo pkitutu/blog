@@ -13,7 +13,6 @@
 					<?php  $pst=$r->post() ?>
 					<tr>
 						<td>{!! $r->reply !!}</td>
-						<td> <?php var_dump($pst) //echo $pst->body ?> </td>
 						<td>{!! link_to('replies/edit/'.$r->id,'Edit') !!}</td>
 						<td>{!! link_to('replies/delete/'.$r->id,'Delete') !!}</td>
 					</tr>

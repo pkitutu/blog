@@ -13,8 +13,10 @@ class CreateRepliesTable extends Migration {
 	public function up()
 	{
 		Schema::create('replies', function(Blueprint $table)
-		{
+		{	
 			$table->increments('id');
+			$table->string('reply');
+			$table->integer('post_id');
 			$table->timestamps();
 		});
 	}
