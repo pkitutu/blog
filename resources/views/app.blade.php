@@ -55,8 +55,11 @@
 		</div>
 	</nav>
  -->
+ {!! link_to('posts/create',' Create Post' ) !!} | 
 
- {!! link_to('registrations/index','Home' ) !!} | {!! link_to('registrations/create','Create' ) !!}<br>
+ {!! link_to('posts/index','Posts' ) !!} | 
+ {!! link_to('replies/create','Create Reply' ) !!} |
+ {!! link_to('replies/index','Replies' ) !!}<br>
 	@yield('content')
 
 	<!-- Scripts -->

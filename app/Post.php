@@ -11,4 +11,8 @@ class Post extends Model {
 
 	protected $fillable = ['title','body'];
 
+	public function replies(){
+		return $this->hasMany('App\Models\Reply');
+	}
+
 }

@@ -1,4 +1,4 @@
-<?php
+<?php  
 
 /*
 |--------------------------------------------------------------------------
@@ -33,20 +33,21 @@ Route::post('posts/update','PostsController@update');
 
 Route::get('posts/delete/{id}','PostsController@destroy');
 
+//...................................................
+Route::get('replies/index','RepliesController@index');
+Route::get('replies/show/{id}','RepliesController@show');
+
+Route::get('replies/create','RepliesController@create');
+Route::post('replies/store','RepliesController@store');
+
+Route::get('replies/edit/{id}','RepliesController@edit');
+Route::post('replies/update','RepliesController@update');
+
+Route::get('replies/delete/{id}','RepliesController@destroy');
+
 
 //
 //Routes for registrations
 //
 
-Route::get('registrations/index','RegistrationsController@index');
-Route::get('registrations/show/{id}','RegistrationsController@show');
-
-Route::get('registrations/create','RegistrationsController@create');
-Route::post('registrations/store','RegistrationsController@store');
-
-Route::get('registrations/edit/{id}','RegistrationsController@edit');
-Route::post('registrations/update','RegistrationsController@update');
-
-Route::get('registrations/delete/{id}','RegistrationsController@destroy');
-
-
+require __DIR__."/regs_routes.php";

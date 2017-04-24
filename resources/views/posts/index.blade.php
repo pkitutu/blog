@@ -7,11 +7,12 @@
 				<div class="panel-heading">Below are the posts</div>
 
 				<div class="panel-body">
-					<table>
-						<tr><th /> <th /></tr>
+					<table class='table'>
+						<tr><th /> <th /><th /> <th /></tr>
 					@foreach ($posts as $post)
 					<tr>
 						<td>{!! link_to('posts/show/'.$post->id,$post->title) !!}</td>
+						<td>{!! link_to('replies/index/'.$post->id,'Replies') !!}</td>
 						<td>{!! link_to('posts/edit/'.$post->id,'Edit') !!}</td>
 						<td>{!! link_to('posts/delete/'.$post->id,'Delete') !!}</td>
 					</tr>

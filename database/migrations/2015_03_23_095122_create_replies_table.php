@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateColorsTable extends Migration {
+class CreateRepliesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,9 @@ class CreateColorsTable extends Migration {
 	 */
 	public function up()
 	{
-		//
-		Schema::create('colors', function($table)
+		Schema::create('replies', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('name');
-			$table->integer('score');
 			$table->timestamps();
 		});
 	}
@@ -29,8 +26,7 @@ class CreateColorsTable extends Migration {
 	 */
 	public function down()
 	{
-		//
-		Schema::drop('colors');
+		Schema::drop('replies');
 	}
 
 }

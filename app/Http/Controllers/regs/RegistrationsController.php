@@ -1,4 +1,4 @@
-<?php namespace App\Http\Controllers;
+<?php namespace App\Http\Controllers\regs;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -8,7 +8,7 @@ use Input;
 use Validator;
 use Redirect;
 
-use App\Registration;
+use App\Models\Registration;
 
 class RegistrationsController extends Controller {
 

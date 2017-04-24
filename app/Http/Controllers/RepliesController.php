@@ -4,26 +4,23 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Request;
-use Input;
 use Validator;
 use Redirect;
+use App\Models\Reply;
 
-use App\Post;
 
-class PostsController extends Controller {
-
+class RepliesController extends Controller {
+//0706923556
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
-
 	public function index()
 	{
 		//
-		$posts = Post::all();
-
-		return view('posts.index', compact('posts'));
+		$replies=Reply::all();
+		return view("replies.index",compact("replies"));
 	}
 
 	/**
@@ -34,7 +31,7 @@ class PostsController extends Controller {
 	public function create()
 	{
 		//
-		return view('posts.create');
+		return view("replies.create");
 	}
 
 	/**
@@ -44,15 +41,9 @@ class PostsController extends Controller {
 	 */
 	public function store()
 	{
-		$validator = Validator::make($data = Input::all(), Post::$rules);
-
-		if ($validator->fails())
-		{
-			return back()->withErrors($validator)->withInput();
-		}
-
-		Post::create($data);
-		return redirect('posts/index');
+		//
+		Reply::create(Request::all());
+		return redirect('replies/index');
 	}
 
 	/**
@@ -64,9 +55,6 @@ class PostsController extends Controller {
 	public function show($id)
 	{
 		//
-		$post=Post::findOrFail($id);
-		$replies=$post->replies()->get();
-		return view('posts.show',compact('post','replies'));
 	}
 
 	/**
@@ -78,9 +66,6 @@ class PostsController extends Controller {
 	public function edit($id)
 	{
 		//
-		$post = Post::findOrFail($id);
-
-		return view('posts.edit', compact('post'));
 	}
 
 	/**
@@ -89,23 +74,9 @@ class PostsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update()
+	public function update($id)
 	{
 		//
-
-		$data = Input::all();
-		$post = Post::findOrFail($data['id']);
-
-		$validator = Validator::make($data, Post::$rules);
-
-		if ($validator->fails())
-		{
-			return back()->withErrors($validator)->withInput();
-		}
-
-		$post->update($data);
-
-		return redirect('posts/show/'.$data['id']);
 	}
 
 	/**
@@ -117,9 +88,6 @@ class PostsController extends Controller {
 	public function destroy($id)
 	{
 		//
-		Post::destroy($id);
-
-		return redirect('posts/index');
 	}
 
 }
